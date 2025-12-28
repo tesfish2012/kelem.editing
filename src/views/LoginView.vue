@@ -37,7 +37,7 @@ async function handleLogin() {
   <section class="w-full h-screen px-[1%] md:px-[10%] flex items-center justify-center bg-[#288fb2]/10">
     <div class="flex flex-col justify-center w-[80%] md:w-[40%] border rounded-xl p-6 gap-2 bg-white shadow-xl">
       <img
-        src="@/assets/logo.png"
+        src="@/assets/logo.jpg"
         class="w-20 rounded-fullX h-20 mx-auto object-fit bg-cover object-center"
         width="200px"
         height="200px"

@@ -16,11 +16,11 @@ const items = SIDEBARITEMS.ADMIN_TABS
 <template>
   <aside :class="`${barClass} sidebar text-whitex bg-white border rounded-xl shadow-xl`">
     <div class="hidden md:flex items-center mb-4 h-[48px]">
-      <img src="@/assets/logo.png" alt="Logo" class="w-20 h-20" />
+      <img src="@/assets/logo.jpg" alt="Logo" class="w-20 h-20 rounded-full" />
       <!-- <p class="text-xl font-semibold ml-2">Meyla</p> -->
     </div>
     <div class="flex justify-between px-4 md:hidden items-center mb-4 h-[48px]">
-      <img src="@/assets/logo.png" alt="Logo" class="w-[48px]" />
+      <img src="@/assets/logo.png" alt="Logo" class="w-[48px] rounded-full" />
       <button @click="$emit('hideSidebar')">
         <font-awesome-icon icon="times" class="text-lg"></font-awesome-icon>
       </button>

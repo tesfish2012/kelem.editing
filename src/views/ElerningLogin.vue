@@ -59,7 +59,7 @@ const handleLogin = async () => {
     <div data-aos="fade-down" class="w-full max-w-md bg-white shadow-lg rounded-2xl p-8 border">
 
       <div class="text-center mb-6">
-        <img src="@/assets/logo.png" class="w-16 mx-auto mb-4" />
+        <img src="@/assets/logo.jpg" class="w-16 mx-auto mb-4 rounded-full" />
         <h2 class="text-2xl font-bold text-gray-800">Welcome Back!</h2>
         <p class="text-gray-500 text-sm">Log in to access your dashboard</p>
       </div>

@@ -127,11 +127,11 @@ onMounted(() => {
 </script>
 
 <template>
-  <footer class="w-full px-[2%] md:px-[5%] text- text-whitex bg-[#001F3F] flex flex-col py-12">
+  <footer class="w-full px-[2%] md:px-[5%] text- text-whitex bg-[#070227] flex flex-col py-12">
 
     <div class="grid grid-cols-1 md:grid-cols-3 gap-4 w-full py-2 md:py-4">
       <div class="flex flex-col gap-2">
-        <h1 class="meyla-subtitleX text-[24px] font-bold text-white">Kaleb Academy</h1>
+        <h1 class="meyla-subtitleX text-[24px] font-bold text-white">Kelem Editing</h1>
         <div class="flex flex-col gap-2" v-for="(setting, index) in settings" :key="index">
           <div class="flex gap-1 text-whitex items-center justify- hover:text-[#288fb2]">
             <font-awesome-icon icon="envelope" class="text-white"></font-awesome-icon>

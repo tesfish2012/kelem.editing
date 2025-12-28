@@ -1,55 +1,67 @@
 <template>
    <div>
   <nav
-    class="bg-[#1d4354]/10d0 bg-[#288fb2] w-full px-[1%] md:px-[7%] items-center flex flex-col md:flex-row justify-between text-white py-1"
+  class="w-full bg-[#070227] px-4 md:px-20 py-2 text-[#ECF71B]
+         flex flex-col md:flex-row items-center justify-between gap-2"
+>
+  <!-- Contact Info -->
+  <div
+    class="flex flex-col sm:flex-row gap-3 text-sm font-medium "
+    v-for="(setting, index) in settings"
+    :key="index"
   >
-    <div class="flex gap-2" v-for="(setting, index) in settings" :key="index">
-      <div class="flex gap-1 text-whitex items-center justify- hover:text-[#288fb2]">
-        <font-awesome-icon icon="envelope" class="text-white"></font-awesome-icon>
-        <p class="text-white">{{ setting.mail }}</p>
-      </div>
-      <div class="flex gap-1 text-whitex items-center justify- hover:text-[#288fb2]">
-        <!-- <h1 class="font-semibold text-white">Phone:</h1> -->
-        <font-awesome-icon icon="phone" class="text-white"></font-awesome-icon>
-        <p class="text-white">{{ setting.contactNumber.split(',')[0] }}</p>
-      </div>
+    <!-- Email -->
+    <div class="flex items-center gap-2 hover:text-[#1d4354] transition">
+      <font-awesome-icon icon="envelope" />
+      <span>{{ setting.mail }}</span>
     </div>
-    <div class="flex gap-1" v-if="socialMediaLinks && socialMediaLinks.length > 0">
-      <a
-        v-for="(link, index) in socialMediaLinks"
-        :key="index"
-        :href="link.link"
-        target="_blank"
-        class="bg-whitez rounded-full w-8 h-8 flex items-center justify-center text-[20px] hover:text-white hover:bg-[#288fb2]"
-      >
-        <font-awesome-icon
-          v-if="link.platform.toLowerCase() === 'facebook'"
-          :icon="['fab', 'facebook']"
-          class="text-whit p-2 rounded text-blue-700z"
-        />
-        <font-awesome-icon
-          v-else-if="link.platform.toLowerCase() === 'twitter'"
-          :icon="['fab', 'twitter']"
-          class="text-whitex p-2 rounded"
-        />
-        <font-awesome-icon
-          v-else-if="link.platform.toLowerCase() === 'youtube'"
-          :icon="['fab', 'youtube']"
-          class="text-whitex p-2 rounded"
-        />
-        <font-awesome-icon
-          v-else-if="link.platform.toLowerCase() === 'telegram'"
-          :icon="['fab', 'telegram']"
-          class="text-whitex p-2 rounded"
-        />
-        <font-awesome-icon
-          v-else-if="link.platform.toLowerCase() === 'linkedin'"
-          :icon="['fab', 'linkedin']"
-          class="text-whitex p-2 rounded"
-        />
-      </a>
+
+    <!-- Phone -->
+    <div class="flex items-center gap-2 hover:text-[#1d4354] transition">
+      <font-awesome-icon icon="phone" />
+      <span>{{ setting.contactNumber.split(',')[0] }}</span>
     </div>
-  </nav>
+  </div>
+
+  <!-- Social Media -->
+  <div
+    class="flex items-center gap-2"
+    v-if="socialMediaLinks && socialMediaLinks.length > 0"
+  >
+    <a
+      v-for="(link, index) in socialMediaLinks"
+      :key="index"
+      :href="link.link"
+      target="_blank"
+      class="w-8 h-8 rounded-full flex items-center justify-center
+             bg-[#080228] text-[#ECF71B]
+             hover:bg-[#1d4354] hover:text-white
+             transition duration-200"
+    >
+      <font-awesome-icon
+        v-if="link.platform.toLowerCase() === 'facebook'"
+        :icon="['fab', 'facebook']"
+      />
+      <font-awesome-icon
+        v-else-if="link.platform.toLowerCase() === 'twitter'"
+        :icon="['fab', 'twitter']"
+      />
+      <font-awesome-icon
+        v-else-if="link.platform.toLowerCase() === 'youtube'"
+        :icon="['fab', 'youtube']"
+      />
+      <font-awesome-icon
+        v-else-if="link.platform.toLowerCase() === 'telegram'"
+        :icon="['fab', 'telegram']"
+      />
+      <font-awesome-icon
+        v-else-if="link.platform.toLowerCase() === 'linkedin'"
+        :icon="['fab', 'linkedin']"
+      />
+    </a>
+  </div>
+</nav>
+
   <header
     class="w-full text-[#001F3F] hidden bg-white/100 md:flex md:flex-col px-[1%] shadow md:px-[7%] sticky top-0 z-50 text-[20px]"
     :class="[
@@ -67,36 +79,36 @@
         <li>
           <router-link
             :to="{ name: 'home' }"
-            class="parent-item hover:text-[#288FB2]"
-            :class="[{ 'text-[#288FB2]': isParentActive('home') }]"
+            class="parent-item hover:text-[#ECF71B]"
+            :class="[{ 'text-[#ECF71B]': isParentActive('home') }]"
             >{{ $t('Home') }}</router-link
           >
         </li>
         <li class="relative group">
           <router-link
             :to="{ name: 'about-us' }"
-            class="parent-item hover:text-[#288FB2]"
-            :class="[{ 'text-[#288FB2]': isParentActive('about-us') }]"
+            class="parent-item hover:text-[#ECF71B]"
+            :class="[{ 'text-[#ECF71B]': isParentActive('about-us') }]"
             >{{ $t('About Us') }}</router-link
           >
           <div
-            class="absolute hidden group-hover:flex rounded-xlz p-4 child z-50 min-w-80 space-y-2 left-0 bg-[#288fb2] border top-[100%] opacity-0 transition-opacity duration-300 ease-in-out transform scale-95 flex-col gap-2"
+            class="absolute hidden group-hover:flex rounded-xlz p-4 child z-50 min-w-80 space-y-2 left-0 bg-[#070227] border top-[100%] opacity-0 transition-opacity duration-300 ease-in-out transform scale-95 flex-col gap-2"
           >
-            <a href="#about_section" class="hover:text-[#288FB2]z text-white">
+            <a href="#about_section" class="hover:text-[#ECF71B]z text-white">
               <!-- @click="scrollToSection(el.id)" -->
-              <span class="hover:text-[#288FB2]z text-white"> {{ $t('About Us') }} </span>
+              <span class="hover:text-[#ECF71B]z text-white"> {{ $t('About Us') }} </span>
               <hr class="text-[#001F3F]" />
             </a>
-            <a href="#bod_section" class="hover:text-[#288FB2]z text-white">
+            <a href="#bod_section" class="hover:text-[#ECF71B]z text-white">
               <!-- @click="scrollToSection(el.id)" -->
-              <span class="hover:text-[#288FB2]z text-white">
+              <span class="hover:text-[#ECF71B]z text-white">
                 {{ $t('Board of Directories') }}
               </span>
               <hr class="text-[#001F3F]" />
             </a>
-            <a href="#structure_section" class="hover:text-[#288FB2]z text-white">
+            <a href="#structure_section" class="hover:text-[#ECF71B]z text-white">
               <!-- @click="scrollToSection(el.id)" -->
-              <span class="hover:text-[#288FB2]z text-white">
+              <span class="hover:text-[#ECF71B]z text-white">
                 {{ $t('Organizational Structure') }}
               </span>
               <hr class="text-[#001F3F]" />
@@ -106,20 +118,20 @@
         <li class="relative group">
           <router-link
             :to="{ name: 'services' }"
-            class="parent-item hover:text-[#288FB2]"
-            :class="[{ 'text-[#288FB2]': isParentActive('services') }]"
+            class="parent-item hover:text-[#ECF71B]"
+            :class="[{ 'text-[#ECF71B]': isParentActive('services') }]"
             >{{ $t('Programs & Services') }}</router-link
           >
           <div
-            class="absolute hidden group-hover:flex rounded-xlz p-4 child z-50 min-w-80 space-y-2 left-0 bg-[#288fb2] border top-[100%] opacity-0 transition-opacity duration-300 ease-in-out transform scale-95 flex-col gap-2"
+            class="absolute hidden group-hover:flex rounded-xlz p-4 child z-50 min-w-80 space-y-2 left-0 bg-[#080228] border top-[100%] opacity-0 transition-opacity duration-300 ease-in-out transform scale-95 flex-col gap-2"
           >
             <a
               :href="'#' + (language === 'en' ? service.serviceTitle.en : service.serviceTitle.ti)"
-              class="hover:text-[#288FB2]z text-white"
+              class="hover:text-[#ECF71B]z text-white"
               v-for="(service, i) in services"
               :key="i"
             >
-              <span class="hover:text-[#288FB2]z text-white font-semibold">
+              <span class="hover:text-[#ECF71B]z text-white font-semibold">
                 {{ language === 'en' ? service.serviceTitle.en : service.serviceTitle.ti }}
               </span>
               <p class="line-clamp-3 text-sm">
@@ -134,8 +146,8 @@
         <li>
           <router-link
             :to="{ name: 'news' }"
-            class="parent-item hover:text-[#288FB2]"
-            :class="[{ 'text-[#288FB2]': isParentActive('news') }]"
+            class="parent-item hover:text-[#ECF71B]"
+            :class="[{ 'text-[#ECF71B]': isParentActive('news') }]"
             >{{ $t('News') }}</router-link
           >
         </li>
@@ -143,8 +155,8 @@
         <li>
           <router-link
             :to="{ name: 'e-learning' }"
-            class="parent-item hover:text-[#288FB2]"
-            :class="[{ 'text-[#288FB2]': isParentActive('e-learning') }]"
+            class="parent-item hover:text-[#ECF71B]"
+            :class="[{ 'text-[#ECF71B]': isParentActive('e-learning') }]"
             >{{ $t('e-learning') }}</router-link
           >
         </li>
@@ -152,8 +164,8 @@
            <li>
           <router-link
             :to="{ name: 'careers' }"
-            class="parent-item hover:text-[#288FB2]"
-            :class="[{ 'text-[#288FB2]': isParentActive('careers') }]"
+            class="parent-item hover:text-[#ECF71B]"
+            :class="[{ 'text-[#ECF71B]': isParentActive('careers') }]"
             >{{ $t('Careers') }}</router-link
           >
         </li>
@@ -161,16 +173,16 @@
         <li>
           <router-link
             :to="{ name: 'open-gallery' }"
-            class="parent-item hover:text-[#288FB2]"
-            :class="[{ 'text-[#288FB2]': isParentActive('open-faqs') }]"
+            class="parent-item hover:text-[#ECF71B]"
+            :class="[{ 'text-[#ECF71B]': isParentActive('open-faqs') }]"
             >{{ $t('Gallery') }}</router-link
           >
         </li>
         <li>
           <router-link
             :to="{ name: 'contact-us' }"
-            class="parent-item hover:text-[#288FB2]"
-            :class="[{ 'text-[#288FB2]': isParentActive('contact-us') }]"
+            class="parent-item hover:text-[#ECF71B]"
+            :class="[{ 'text-[#ECF71B]': isParentActive('contact-us') }]"
             >{{ $t('Contact Us') }}</router-link
           >
         </li>
@@ -193,10 +205,10 @@
     <nav class="w-full h-full flex justify-between py-4 px-2">
       <router-link to="/" class="flex items-center hover:border-b-0" title="meyla sacco">
         <img
-          src="@/assets/Logo-Blue.png"
-          alt="Logo of meyla-sacco"
+          src="@/assets/logo.jpg"
+          alt="Logo of kelem "
           height="20px"
-          class="w-10 h-full object-contain"
+          class="w-10 h-full object-contain rounded-full"
         />
       </router-link>
       <button @click="toggleSmallDevice">
@@ -207,7 +219,7 @@
 
     <div
       v-if="isSmall && showModal"
-      class="w-full h-screen flex fixed top-[80px] z-50 bg-[#001F3F] overflow-auto p-4"
+      class="w-full h-screen flex fixed top-[80px] z-50 bg-[#080228] overflow-auto p-4"
       data-aos="fade-left"
     >
       <div
@@ -220,8 +232,8 @@
             <router-link
               :to="{ name: 'home' }"
               @click="visited"
-              class="parent-item text-white hover:text-[#288FB2]"
-              :class="[{ 'text-[#288FB2]': isParentActive('home') }]"
+              class="parent-item text-white hover:text-[#ECF71B]"
+              :class="[{ 'text-[#ECF71B]': isParentActive('home') }]"
               >{{ $t('Home') }}</router-link
             >
           </li>
@@ -229,28 +241,28 @@
             <router-link
               :to="{ name: 'about-us' }"
               @click="visited"
-              class="parent-item text-white hover:text-[#288FB2]"
-              :class="[{ 'text-[#288FB2]': isParentActive('about-us') }]"
+              class="parent-item text-white hover:text-[#ECF71B]"
+              :class="[{ 'text-[#ECF71B]': isParentActive('about-us') }]"
               >{{ $t('About Us') }}</router-link
             >
             <div
-              class="flex rounded-xlz p-4 z-50 min-w-80 space-y-2 left-0 bg-[#288fb2]z borderz top-[100%] transition-opacity duration-300 ease-in-out transform scale-95 flex-col gap-2"
+              class="flex rounded-xlz p-4 z-50 min-w-80 space-y-2 left-0 bg-[#ECF71B]z borderz top-[100%] transition-opacity duration-300 ease-in-out transform scale-95 flex-col gap-2"
             >
-              <a href="#about_section" class="text-white hover:text-[#288FB2] text-whitez">
+              <a href="#about_section" class="text-white hover:text-[#ECF71B] text-whitez">
                 <!-- @click="scrollToSection(el.id)" -->
-                <span class="hover:text-[#288FB2]z text-whitez"> {{ $t('About Us') }} </span>
+                <span class="hover:text-[#ECF71B]z text-whitez"> {{ $t('About Us') }} </span>
                 <hr class="text-[#001F3F]" />
               </a>
-              <a href="#bod_section" class="text-white hover:text-[#288FB2] text-whitez">
+              <a href="#bod_section" class="text-white hover:text-[#ECF71B] text-whitez">
                 <!-- @click="scrollToSection(el.id)" -->
-                <span class="hover:text-[#288FB2] text-whitez">
+                <span class="hover:text-[#ECF71B] text-whitez">
                   {{ $t('Board of Directories') }}
                 </span>
                 <hr class="text-[#001F3F]" />
               </a>
-              <a href="#structure_section" class="text-white hover:text-[#288FB2] text-whitez">
+              <a href="#structure_section" class="text-white hover:text-[#ECF71B] text-whitez">
                 <!-- @click="scrollToSection(el.id)" -->
-                <span class="hover:text-[#288FB2]z text-whitez">
+                <span class="hover:text-[#ECF71B]z text-whitez">
                   {{ $t('Organizational Structure') }}
                 </span>
                 <hr class="text-[#001F3F]" />
@@ -261,22 +273,22 @@
             <router-link
               :to="{ name: 'services' }"
               @click="visited"
-              class="parent-item hover:text-[#288FB2]"
-              :class="[{ 'text-[#288FB2]': isParentActive('services') }]"
+              class="parent-item hover:text-[#ECF71B]"
+              :class="[{ 'text-[#ECF71B]': isParentActive('services') }]"
               >{{ $t('Programs & Services') }}</router-link
             >
             <div
-              class="flex rounded-xlz p-4 z-50 min-w-80 space-y-2 left-0 bg-[#288fb2]z borderz top-[100%] opacity-0z transition-opacity duration-300 ease-in-out transform scale-95 flex-col gap-2"
+              class="flex rounded-xlz p-4 z-50 min-w-80 space-y-2 left-0 bg-[#ECF71B]z borderz top-[100%] opacity-0z transition-opacity duration-300 ease-in-out transform scale-95 flex-col gap-2"
             >
               <a
                 :href="
                   '#' + (language === 'en' ? service.serviceTitle.en : service.serviceTitle.ti)
                 "
-                class="hover:text-[#288FB2] text-white"
+                class="hover:text-[#ECF71B] text-white"
                 v-for="(service, i) in services"
                 :key="i"
               >
-                <span class="hover:text-[#288FB2] text-white">
+                <span class="hover:text-[#ECF71B] text-white">
                   {{ language === 'en' ? service.serviceTitle.en : service.serviceTitle.ti }}
                 </span>
 
@@ -288,8 +300,8 @@
             <router-link
               :to="{ name: 'news' }"
               @click="visited"
-              class="parent-item text-white hover:text-[#288FB2]"
-              :class="[{ 'text-[#288FB2]': isParentActive('news') }]"
+              class="parent-item text-white hover:text-[#ECF71B]"
+              :class="[{ 'text-[#ECF71B]': isParentActive('news') }]"
               >{{ $t('News') }}</router-link
             >
           </li>
@@ -297,16 +309,16 @@
             <router-link
               :to="{ name: 'e-learning' }"
               @click="visited"
-              class="parent-item text-white hover:text-[#288FB2]"
-              :class="[{ 'text-[#288FB2]': isParentActive('e-learning') }]"
+              class="parent-item text-white hover:text-[#ECF71B]"
+              :class="[{ 'text-[#ECF71B]': isParentActive('e-learning') }]"
               >{{ $t('e-learning') }}</router-link
             >
           </li>
           <li>
             <router-link
             :to="{ name: 'open-gallery' }"
-            class="parent-item text-white hover:text-[#288FB2]"
-            :class="[{ 'text-[#288FB2]': isParentActive('open-faqs') }]"
+            class="parent-item text-white hover:text-[#ECF71B]"
+            :class="[{ 'text-[#ECF71B]': isParentActive('open-faqs') }]"
             >{{ $t('Gallery') }}</router-link
           >
           </li>
@@ -314,8 +326,8 @@
             <router-link
               :to="{ name: 'careers' }"
               @click="visited"
-              class="parent-item text-white hover:text-[#288FB2]"
-              :class="[{ 'text-[#288FB2]': isParentActive('careers') }]"
+              class="parent-item text-white hover:text-[#ECF71B]"
+              :class="[{ 'text-[#ECF71B]': isParentActive('careers') }]"
               >{{ $t('Careers') }}</router-link
             >
           </li>
@@ -323,8 +335,8 @@
             <router-link
               :to="{ name: 'open-faqs' }"
               @click="visited"
-              class="parent-item text-white hover:text-[#288FB2]"
-              :class="[{ 'text-[#288FB2]': isParentActive('open-faqs') }]"
+              class="parent-item text-white hover:text-[#ECF71B]"
+              :class="[{ 'text-[#ECF71B]': isParentActive('open-faqs') }]"
               >{{ $t('FAQs') }}</router-link
             >
           </li>
@@ -332,8 +344,8 @@
             <router-link
               :to="{ name: 'contact-us' }"
               @click="visited"
-              class="parent-item text-white hover:text-[#288FB2]"
-              :class="[{ 'text-[#288FB2]': isParentActive('contact-us') }]"
+              class="parent-item text-white hover:text-[#ECF71B]"
+              :class="[{ 'text-[#ECF71B]': isParentActive('contact-us') }]"
               >{{ $t('Contact Us') }}</router-link
             >
           </li>
@@ -343,8 +355,8 @@
         <button
           @click="changeLanguage('en')"
           :class="[
-            { 'text-[#288fb2]': locale === 'en', 'text-white': locale !== 'en' },
-            ' hover:text-[#288fb2]'
+            { 'text-[#ECF71B]': locale === 'en', 'text-white': locale !== 'en' },
+            ' hover:text-[#ECF71B]'
           ]"
         >
           English
@@ -352,8 +364,8 @@
         <button
           @click="changeLanguage('ትግርኛ')"
           :class="[
-            { 'text-[#288fb2]': locale !== 'en', 'text-white': locale !== 'ትግርኛ' },
-            'text-white hover:text-[#288fb2]'
+            { 'text-[#ECF71B]': locale !== 'en', 'text-white': locale !== 'ትግርኛ' },
+            'text-white hover:text-[#ECF71B]'
           ]"
         >
           ትግርኛ

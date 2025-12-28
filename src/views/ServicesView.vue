@@ -50,8 +50,8 @@ onMounted(() => {
 
 <template>
   <section class="w-full px-[1%] md:px-[7%] py-2 md:py-4 bg-[#288fb2]/10">
-    <div class="w-full grid grid-cols-2 h-[140px] bg-[#288fb2] items-center justify-center rounded-xl md:px-[3%]">
-      <h1 class="text-4xl text-white">{{ $t('Programs & Services') }}</h1>
+    <div class="w-full grid grid-cols-2 h-[140px] bg-[#070227] text-white items-center justify-center rounded-xl md:px-[3%]">
+      <h1 class="text-4x">{{ $t('Programs & Services') }}</h1>
     </div>
 
     <section class="w-full md:px-[3%] py-2 md:py-6 ">

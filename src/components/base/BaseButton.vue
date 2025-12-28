@@ -1,5 +1,5 @@
 <template>
-  <button class="px-2 py-1 text-white bg-[#288FB2]" v-bind="$attrs">
+  <button class="px-2 py-1 text-[#070227] bg-[#ECF71B]" v-bind="$attrs">
     <font-awesome-icon
       v-if="icon"
       :icon="icon"

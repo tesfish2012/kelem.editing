@@ -55,7 +55,7 @@ onMounted(fetchGalleries)
 
 <template>
   <section class="w-full py-12 bg-gray-50">
-    <div class="flex justify-center w-full items-center bg-[#288FB2] py-4 rounded-lg mb-8">
+    <div class="flex justify-center w-full items-center bg-[#ECF71B] py-4 rounded-lg mb-8">
       <h1 class="text-2xl font-bold text-white">{{ $t('Gallery') }}</h1>
     </div>
 

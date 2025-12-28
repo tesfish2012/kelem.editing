@@ -225,7 +225,7 @@ setTimeout(() => {
           <div class="flex gap-4 max-sm:justify-center">
             <router-link
               to="/services"
-              class="bg-[#288fb2] text-white font-bold p-2 md:py-3 md:px-6 rounded"
+              class="bg-[#070227] text-white font-bold p-2 md:py-3 md:px-6 rounded"
               >{{ $t('OUR Programs') }}</router-link
             >
             <router-link
@@ -240,7 +240,7 @@ setTimeout(() => {
     </Swiper>
 
     <!-- Why choose us section -->
-    <section class="w-full h-full px-[1%] md:px-[10%] py-12 bg-[#288FB2]">
+    <section class="w-full h-full px-[1%] md:px-[10%] py-12 bg-[#070227]">
       <div class="flex flex-col w-full justify-center items-center h-full gap-4 p-6" vif="hero">
         <div class="flex flex-col items-center">
           <h1 class="text text-xl md:text-4xl font-bold text-white">{{ $t('Why Kaleb Academy') }}</h1>

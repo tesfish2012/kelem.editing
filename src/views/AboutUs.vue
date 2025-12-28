@@ -125,9 +125,9 @@ onMounted(
   <section class="w-full py-2 md:py-4 bg-[#288fb2]/10">
     <div class="w-fullpx-[1%] md:px-[7%]">
       <div
-        class="grid grid-cols-2 h-[140px] bg-[#288fb2] items-center justify-center place-content-center rounded-xl p-4"
+        class="grid grid-cols-2 h-[140px] bg-[#070227] text-white items-center justify-center place-content-center rounded-xl p-4"
       >
-        <h1 class="text-4xl text-white">{{ $t('About Us') }}</h1>
+        <h1 class="text-4xl">{{ $t('About Us') }}</h1>
       </div>
     </div>
     <section
@@ -137,16 +137,16 @@ onMounted(
     >
       <div class="w-full flex flex-col md:flex-row gap-6 px-[1%] md:px-[10%]" id="about_section">
         <div class="w-full h-full md:w-1/2 rounded-xl">
-          <img
-            src="@/assets/about.jpg"
+          <!-- <img
+            src="@/assets/kelem1.jpg"
             alt="About Kaleb academy"
             class="w-full h-full rounded-xl"
             style="min-height: 100%"
           />
-          <br>
+          <br> -->
           <img
-            src="@/assets/about2.jpg"
-            alt="About Kaleb academy"
+            src="@/assets/kelem2.jpg"
+            alt="About keleb "
             class="w-full h-full rounded-xl"
             style="min-height: 100%"
           />

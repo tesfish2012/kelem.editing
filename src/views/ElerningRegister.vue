@@ -64,7 +64,7 @@ const submitRegister = async () => {
       class="w-full max-w-md bg-white shadow-lg rounded-2xl p-8 border">
 
       <div class="text-center mb-6">
-        <img src="@/assets/logo.png" class="w-16 mx-auto mb-4" />
+        <img src="@/assets/logo.jpg" class="w-16 mx-auto mb-4" />
         <h2 class="text-2xl font-bold text-gray-800">Create Account</h2>
         <p class="text-gray-500 text-sm">Register to access your dashboard</p>
       </div>

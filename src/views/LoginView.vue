@@ -38,7 +38,7 @@ async function handleLogin() {
     <div class="flex flex-col justify-center w-[80%] md:w-[40%] border rounded-xl p-6 gap-2 bg-white shadow-xl">
       <img
         src="@/assets/logo.jpg"
-        class="w-20 rounded-fullX h-20 mx-auto object-fit bg-cover object-center"
+        class="w-20 rounded-fullX h-20 mx-auto object-fit bg-cover object-center rounded-full"
         width="200px"
         height="200px"
       />

@@ -87,7 +87,7 @@ const hideSidebar = () => {
         v-if="showSidebar"
       >
         <div class="flex justify-between px-4 md:hidden items-center h-[48px]">
-          <img src="@/assets/Logo-Blue.png" alt="Logo" class="w-[48px]" />
+          <img src="@/assets/login.jpg" alt="Logo" class="w-[48px] rounded-full" />
           <button @click="hideSidebar">
             <font-awesome-icon icon="times" class="text-2xl"></font-awesome-icon>
           </button>

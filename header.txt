@@ -1,0 +1,200 @@
+<header
+    class="w-full text-[#001F3F] hidden bg-white/100 md:flex md:flex-col px-[1%] shadow md:px-[7%] sticky top-0 z-50"
+    :class="[
+      { 'bg-blue-900/1d00 text-whitef': changeBackground },
+      { ' bg-white/1d00': !changeBackground }
+    ]"
+  >
+    <nav class="w-full flex justify-between items-center py-2 md:py-4">
+      <router-link to="/" class="flex items-center hover:border-b-0" title="Meyla-sacco">
+        <img src="@/assets/Logo_Banner_ Blue.svg" alt="Logo of meyla-sacco" class="h-12" />
+      </router-link>
+      <ul
+        :class="[{ 'text-blue-900f': !changeBackground }, 'flex gap-8 relative text-[20px]']"
+        @mouseenter="showDropdown"
+        @mouseleave="hideDropdown"
+        ref="button"
+      >
+        <li v-for="(item, i) in items" :key="i" :class="['font-semiboldx']">
+          <template v-if="hasChildItems(item)">
+            <router-link
+              :to="{ name: item.name }"
+              class="parent-item"
+              :class="[{ '': isParentActive(item) }]"
+            >
+              <span class="hover:text-[#288FB2]"> {{ $t(item.label) }}</span>
+              <span class="hover:text-[#288FB2] font-semibold">
+                <font-awesome-icon icon="chevron-down" class=""></font-awesome-icon>
+              </span>
+              <div
+                class="absolute rounded-xlz p-4 child z-50 min-w-80 space-y-2 left-0 bg-[#288fb2] border top-[100%] opacity-0 transition-opacity duration-300 ease-in-out transform scale-95"
+                :class="{ 'opacity-100 scale-100': isOpen }"
+                v-show="isOpen"
+                ref="dropdown"
+                role="menu"
+                aria-orientation="vertical"
+                aria-labelledby="menu-button"
+                tabindex="-1"
+              >
+                <!-- <div ref="arrow" class="arrow"> :class="[
+                    { 'meyla-active-menu': $route.name === el.name },
+                    { 'text-blackx': changeBackground }
+                  ]"</div> -->
+                <a
+                  v-for="(el, j) in item.sub_items"
+                  :key="j"
+                  :href="'#' + el.id"
+                  class="px-4 hover:text-[#288FB2]z text-white"
+                >
+                  <!-- @click="scrollToSection(el.id)" -->
+                  <span class="hover:text-[#288FB2]z text-white"> {{ $t(el.label) }} </span>
+                  <hr class="text-[#001F3F]" />
+                </a>
+              </div>
+            </router-link>
+          </template>
+          <template v-else>
+            <router-link
+              :to="{ name: item.name }"
+              class="relative hover:text-[#288FB2]"
+              :class="{ 'meyla-active-menu': $route.name === item.name }"
+            >
+              {{ $t(item.label) }}
+            </router-link>
+          </template>
+        </li>
+      </ul>
+      <!-- <div class="flex gap-2 items-center justify-center"> -->
+      <!-- <button @click="showSearch = !showSearch">
+          <font-awesome-icon icon="search"></font-awesome-icon>
+        </button> -->
+      <!-- 
+        <button @click="toggleLanguage" class="px-4 py-2 rounded text-blue-500">
+          {{ showEnglish ? 'Tigrinya' : 'English' }}
+        </button> -->
+
+      <!-- <div class="dropdown group relative">
+          <button class="dropdownbtn flex gap-1 items-center justify-center" @click="showLanguage">
+            <font-awesome-icon icon="language" class="text-[]"></font-awesome-icon>
+            <font-awesome-icon icon="chevron-down"></font-awesome-icon>
+          </button>
+          <ul
+            class="dropdown-contetn absolute left-0 top-full bg-white p-4 text-whitex flex flex-col gap-2 shadow-xl"
+            v-if="showLang"
+            data-aos="fade-up"
+          >
+            <li><button @click="changeLanguage('en')">English</button></li>
+            <hr />
+            <li><button @click="changeLanguage('ትግርኛ')">ትግርኛ</button></li>
+          </ul>
+        </div> -->
+      <!-- </div> -->
+    </nav>
+  </header>
+
+  <header class="w-full flex md:hidden px-[1%] md:px-[7%] sticky top-0 bottom-0 bg-white/100 z-50">
+    <nav class="w-full h-full flex justify-between py-4">
+      <router-link to="/" class="flex items-center hover:border-b-0" title="meyla sacco">
+        <img
+          src="@/assets/Logo-Blue.png"
+          alt="Logo of meyla-sacco"
+          height="20px"
+          class="w-8 h-full"
+        />
+      </router-link>
+      <button @click="isSmall = !isSmall">
+        <font-awesome-icon icon="bars"></font-awesome-icon>
+      </button>
+    </nav>
+
+    <div
+      v-if="isSmall"
+      class="w-full h-screen flex justify-between fixed inset-0 py-6 z-20 bg-white/70"
+    >
+      <button
+        @click="isSmall = !isSmall"
+        class="self-start mx-4 text-blue-40z0 font-semibold text-gray-700 bg-white text-2xl"
+      >
+        Cancel
+      </button>
+      <div
+        :class="[
+          'w-full justify-self-end px-[1%] md:px-[7%] flex flex-col gap-2 text-black bg-white/100 items-end h-full'
+        ]"
+        data-aos="fade-left"
+      >
+        <ul>
+          <li v-for="(item, i) in items" :key="i" :class="['font-semibold flex flex-col  gap-2']">
+            <template v-if="hasChildItems(item)">
+              <router-link
+                :to="{ name: item.name }"
+                class="relative parent-item"
+                :class="{ 'meyla-active-menu': isParentActive(item) }"
+                @click="isSmall = !isSmall"
+              >
+                <span class="hover:text-[#288FB2]"> {{ $t(item.label) }}</span>
+
+                <div
+                  class="transition-all left-0 bg-white pys-4 flex flex-col"
+                  v-if="item.sub_items"
+                >
+                  <router-link
+                    v-for="(el, j) in item.sub_items"
+                    :key="j"
+                    :to="{ name: el.name }"
+                    class="px-4 py-1 hover:text-[#288fb2]"
+                    :class="{ 'meyla-active-menu': $route.name === el.name }"
+                    @click="toggleDropdown"
+                    >{{ $t(el.label) }}</router-link
+                  >
+                </div></router-link
+              >
+            </template>
+            <template v-else>
+              <router-link
+                :to="{ name: item.name }"
+                class="relative hover:text-[#288FB2]"
+                :class="{ 'meyla-active-menu': $route.name === item.name }"
+                @click="isSmall = !isSmall"
+              >
+                {{ $t(item.label) }}
+              </router-link>
+            </template>
+          </li>
+        </ul>
+      </div>
+      <div
+        class="shadow space-y-2 right-0 p-6 bg-white"
+        id="languageDropdown"
+        :class="{ 'text-black': changeBackground }"
+      >
+        <button
+          @click="changeLanguage('en')"
+          :class="[{ 'text-[#288fb2]': locale === 'en' }, 'hover:text-[#288fb2]']"
+        >
+          English
+        </button>
+        <button
+          @click="changeLanguage('ትግርኛ')"
+          :class="[{ 'text-[#288fb2]': locale !== 'en' }, 'hover:text-[#288fb2]']"
+        >
+          ትግርኛ
+        </button>
+      </div>
+    </div>
+  </header>
+
+
+<div
+    class="fixed inset-0 flex z-50 gap-4 bg-[#F5F5F5] items-center justify-center"
+    v-if="showSearch"
+  >
+    <div>
+      <base-input
+        v-model="search"
+        class="border-none outline-none text-5xl bg-[#F5F5F5]"
+        placeholder="Search..."
+      ></base-input>
+    </div>
+    <button class="text-red-700 text-4xl" @click="cancelSearch">X</button>
+  </div>

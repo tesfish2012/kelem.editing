@@ -1,0 +1,58 @@
+/* main.css */
+@import 'tailwindcss/base';
+@import 'tailwindcss/components';
+@import 'tailwindcss/utilities';
+
+/* Define global CSS variable */
+:root {
+  --primary-color: #288FB2;
+  --secondary-color: #FFFFFF;
+  --iq-color3: #DAA520;
+  --iq-color4: #001F3F;
+  --font-size: 24px;
+  --line-height: 36px;
+  --font-size2: 20px;
+  --line-height2: 28px;
+}
+
+.meyla-color1 {
+  color: var(--primary-color);
+}
+.meyla-color2 {
+  border: 1px solid var(--secondary-color);
+  color: var(--secondary-color);
+}
+.meyla-color3 {
+  background-color: var(--iq-color3);
+  /* background-color: var(--iq-color2); */
+}
+
+.meyla-color2-bg {
+  background-color: var(--secondary-color);
+}
+
+.meyla-title {
+  font-size: var(--font-size);
+  line-height: var(--line-height);
+  font-weight: 600;
+}
+.meyla-subtitle {
+  font-size: var(--font-size2);
+  line-height: var(--line-height2);
+  font-weight: 600;
+}
+
+.meyla-active-menu {
+  /* color: #37a000 !important; */
+  /* border-bottom: 1px solid #325ac2; */
+}
+
+.meyla-color4 {
+  color: var(--primary-color);
+  border-left: 3px solid var(--primary-color);
+  gap: 4px;
+}
+
+.meyla-latest {
+  background-color: var(--secondary-color);
+}
